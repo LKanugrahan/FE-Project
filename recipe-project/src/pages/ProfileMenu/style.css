@@ -1,0 +1,21 @@
+#detail-profile {
+    height: 1979px;
+  }
+  
+  .card .border-0 {
+    max-width: 210px;
+  }
+  
+  #box {
+    width: 5px;
+    height: auto;
+    background-color: #efc81a;
+  }
+
+#lines {
+    height: 15px; background-color: #efc81a
+}
+
+#recipes, #bookmarked, #liked{
+    max-width: 614px;
+  }

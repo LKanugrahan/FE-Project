@@ -1,0 +1,21 @@
+/* NAV */
+#profileCard {
+  max-width: 210px
+}
+
+#box {
+  width: 5px;
+  height: auto;
+  background-color: #efc81a
+}
+/* END NAV */
+
+/* SEARCH */
+#search-menu {
+  height: 1979px
+}
+
+#newRecipe, #popular, #vegetarian, #breakfast{
+  max-width: 614px;
+}
+/* END SEARCH */
