@@ -1,5 +1,5 @@
-import Nav from "../component pages/Nav"
-import Footer from "../component pages/Footer"
+import Nav from "../../ComponentPage/Nav"
+import Footer from "../../ComponentPage/Footer"
 import "./style.css"
 export default function ProfileMenu() {
     return(

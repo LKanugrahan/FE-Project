@@ -1,4 +1,10 @@
 /* NAV */
+#nav {
+  width: 100%;
+}
+#navbar {
+  width: 28.5%;
+}
 #profileCard {
   max-width: 210px
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Nav from "../component pages/Nav";
-import Footer from "../component pages/Footer";
+import Nav from "../../ComponentPage/Nav";
+import Footer from "../../ComponentPage/Footer";
 import { Link } from "react-router-dom";
 
 let token =
@@ -27,7 +27,7 @@ export default function SearchMenu() {
       .then((res) => {
         console.log(res);
         setData(res.data.data);
-        setPage(page)
+        setPage(page);
       })
       .catch((err) => {
         console.log(err);
@@ -133,7 +133,8 @@ export default function SearchMenu() {
                         <h5 className="card-text">
                           Ingredients: {item.recipe_ingredients}
                         </h5>
-                        <Link to="/detail"
+                        <Link
+                          to="/detail"
                           className="btn btn-warning col-12"
                           role="button"
                         >
@@ -177,7 +178,7 @@ export default function SearchMenu() {
                 {/* <!-- head --> */}
                 <div className="col-md-7">
                   <img
-                    src="/assets/pic2.png"
+                    src="/src/assets/pic2.png"
                     className="img-fluid rounded"
                     alt="..."
                   />
@@ -202,121 +203,7 @@ export default function SearchMenu() {
                       10 Likes - 12 Comments
                     </a>
                     <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
-                      <p className="align-self-center m-0 ms-3">Karen</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- list1 --> */}
-            <div className="card mb-5 border-0">
-              <div className="row g-0">
-                {/* <!-- head --> */}
-                <div className="col-md-7">
-                  <img
-                    src="/assets/pic2.png"
-                    className="img-fluid rounded"
-                    alt="..."
-                  />
-                </div>
-                {/* <!-- body --> */}
-                <div className="col-md-5 d-flex flex-column justify-content-between">
-                  <div className="card-body">
-                    <h4 className="card-title">
-                      Bomb
-                      <br />
-                      Chicken
-                    </h4>
-                    <h5 className="card-text">
-                      Ingredients: Chicken, Dumpling Wrap, Garlic, Spring Onion,
-                      Soy Sauce, Black Sesame Seed
-                    </h5>
-                    <a
-                      className="btn btn-warning col-12"
-                      href="/html/menu/detailMenu.html"
-                      role="button"
-                    >
-                      10 Likes - 12 Comments
-                    </a>
-                    <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
-                      <p className="align-self-center m-0 ms-3">Karen</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- list1 --> */}
-            <div className="card mb-5 border-0">
-              <div className="row g-0">
-                {/* <!-- head --> */}
-                <div className="col-md-7">
-                  <img
-                    src="/assets/pic2.png"
-                    className="img-fluid rounded"
-                    alt="..."
-                  />
-                </div>
-                {/* <!-- body --> */}
-                <div className="col-md-5 d-flex flex-column justify-content-between">
-                  <div className="card-body">
-                    <h4 className="card-title">
-                      Bomb
-                      <br />
-                      Chicken
-                    </h4>
-                    <h5 className="card-text">
-                      Ingredients: Chicken, Dumpling Wrap, Garlic, Spring Onion,
-                      Soy Sauce, Black Sesame Seed
-                    </h5>
-                    <a
-                      className="btn btn-warning col-12"
-                      href="/html/menu/detailMenu.html"
-                      role="button"
-                    >
-                      10 Likes - 12 Comments
-                    </a>
-                    <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
-                      <p className="align-self-center m-0 ms-3">Karen</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- list1 --> */}
-            <div className="card mb-5 border-0">
-              <div className="row g-0">
-                {/* <!-- head --> */}
-                <div className="col-md-7">
-                  <img
-                    src="/assets/pic2.png"
-                    className="img-fluid rounded"
-                    alt="..."
-                  />
-                </div>
-                {/* <!-- body --> */}
-                <div className="col-md-5 d-flex flex-column justify-content-between">
-                  <div className="card-body">
-                    <h4 className="card-title">
-                      Bomb
-                      <br />
-                      Chicken
-                    </h4>
-                    <h5 className="card-text">
-                      Ingredients: Chicken, Dumpling Wrap, Garlic, Spring Onion,
-                      Soy Sauce, Black Sesame Seed
-                    </h5>
-                    <a
-                      className="btn btn-warning col-12"
-                      href="/html/menu/detailMenu.html"
-                      role="button"
-                    >
-                      10 Likes - 12 Comments
-                    </a>
-                    <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
+                      <img src="/src/assets/Ellipse 127.png" alt="" />
                       <p className="align-self-center m-0 ms-3">Karen</p>
                     </div>
                   </div>
@@ -338,7 +225,7 @@ export default function SearchMenu() {
                 {/* <!-- head --> */}
                 <div className="col-md-7">
                   <img
-                    src="/assets/pic3.png"
+                    src="/src/assets/pic3.png"
                     className="img-fluid rounded"
                     alt="..."
                   />
@@ -363,121 +250,7 @@ export default function SearchMenu() {
                       10 Likes - 12 Comments
                     </a>
                     <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
-                      <p className="align-self-center m-0 ms-3">Karen</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- list1 --> */}
-            <div className="card mb-5 border-0">
-              <div className="row g-0">
-                {/* <!-- head --> */}
-                <div className="col-md-7">
-                  <img
-                    src="/assets/pic3.png"
-                    className="img-fluid rounded"
-                    alt="..."
-                  />
-                </div>
-                {/* <!-- body --> */}
-                <div className="col-md-5 d-flex flex-column justify-content-between">
-                  <div className="card-body">
-                    <h4 className="card-title">
-                      Bomb
-                      <br />
-                      Chicken
-                    </h4>
-                    <h5 className="card-text">
-                      Ingredients: Chicken, Dumpling Wrap, Garlic, Spring Onion,
-                      Soy Sauce, Black Sesame Seed
-                    </h5>
-                    <a
-                      className="btn btn-warning col-12"
-                      href="/html/menu/detailMenu.html"
-                      role="button"
-                    >
-                      10 Likes - 12 Comments
-                    </a>
-                    <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
-                      <p className="align-self-center m-0 ms-3">Karen</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- list1 --> */}
-            <div className="card mb-5 border-0">
-              <div className="row g-0">
-                {/* <!-- head --> */}
-                <div className="col-md-7">
-                  <img
-                    src="/assets/pic3.png"
-                    className="img-fluid rounded"
-                    alt="..."
-                  />
-                </div>
-                {/* <!-- body --> */}
-                <div className="col-md-5 d-flex flex-column justify-content-between">
-                  <div className="card-body">
-                    <h4 className="card-title">
-                      Bomb
-                      <br />
-                      Chicken
-                    </h4>
-                    <h5 className="card-text">
-                      Ingredients: Chicken, Dumpling Wrap, Garlic, Spring Onion,
-                      Soy Sauce, Black Sesame Seed
-                    </h5>
-                    <a
-                      className="btn btn-warning col-12"
-                      href="/html/menu/detailMenu.html"
-                      role="button"
-                    >
-                      10 Likes - 12 Comments
-                    </a>
-                    <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
-                      <p className="align-self-center m-0 ms-3">Karen</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- list1 --> */}
-            <div className="card mb-5 border-0">
-              <div className="row g-0">
-                {/* <!-- head --> */}
-                <div className="col-md-7">
-                  <img
-                    src="/assets/pic3.png"
-                    className="img-fluid rounded"
-                    alt="..."
-                  />
-                </div>
-                {/* <!-- body --> */}
-                <div className="col-md-5 d-flex flex-column justify-content-between">
-                  <div className="card-body">
-                    <h4 className="card-title">
-                      Bomb
-                      <br />
-                      Chicken
-                    </h4>
-                    <h5 className="card-text">
-                      Ingredients: Chicken, Dumpling Wrap, Garlic, Spring Onion,
-                      Soy Sauce, Black Sesame Seed
-                    </h5>
-                    <a
-                      className="btn btn-warning col-12"
-                      href="/html/menu/detailMenu.html"
-                      role="button"
-                    >
-                      10 Likes - 12 Comments
-                    </a>
-                    <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
+                      <img src="/src/assets/Ellipse 127.png" alt="" />
                       <p className="align-self-center m-0 ms-3">Karen</p>
                     </div>
                   </div>
@@ -499,7 +272,7 @@ export default function SearchMenu() {
                 {/* <!-- head --> */}
                 <div className="col-md-7">
                   <img
-                    src="/assets/pic4.png"
+                    src="/src/assets/pic4.png"
                     className="img-fluid rounded"
                     alt="..."
                   />
@@ -524,121 +297,7 @@ export default function SearchMenu() {
                       10 Likes - 12 Comments
                     </a>
                     <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
-                      <p className="align-self-center m-0 ms-3">Karen</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- list1 --> */}
-            <div className="card mb-5 border-0">
-              <div className="row g-0">
-                {/* <!-- head --> */}
-                <div className="col-md-7">
-                  <img
-                    src="/assets/pic4.png"
-                    className="img-fluid rounded"
-                    alt="..."
-                  />
-                </div>
-                {/* <!-- body --> */}
-                <div className="col-md-5 d-flex flex-column justify-content-between">
-                  <div className="card-body">
-                    <h4 className="card-title">
-                      Bomb
-                      <br />
-                      Chicken
-                    </h4>
-                    <h5 className="card-text">
-                      Ingredients: Chicken, Dumpling Wrap, Garlic, Spring Onion,
-                      Soy Sauce, Black Sesame Seed
-                    </h5>
-                    <a
-                      className="btn btn-warning col-12"
-                      href="/html/menu/detailMenu.html"
-                      role="button"
-                    >
-                      10 Likes - 12 Comments
-                    </a>
-                    <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
-                      <p className="align-self-center m-0 ms-3">Karen</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- list1 --> */}
-            <div className="card mb-5 border-0">
-              <div className="row g-0">
-                {/* <!-- head --> */}
-                <div className="col-md-7">
-                  <img
-                    src="/assets/pic4.png"
-                    className="img-fluid rounded"
-                    alt="..."
-                  />
-                </div>
-                {/* <!-- body --> */}
-                <div className="col-md-5 d-flex flex-column justify-content-between">
-                  <div className="card-body">
-                    <h4 className="card-title">
-                      Bomb
-                      <br />
-                      Chicken
-                    </h4>
-                    <h5 className="card-text">
-                      Ingredients: Chicken, Dumpling Wrap, Garlic, Spring Onion,
-                      Soy Sauce, Black Sesame Seed
-                    </h5>
-                    <a
-                      className="btn btn-warning col-12"
-                      href="/html/menu/detailMenu.html"
-                      role="button"
-                    >
-                      10 Likes - 12 Comments
-                    </a>
-                    <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
-                      <p className="align-self-center m-0 ms-3">Karen</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* <!-- list1 --> */}
-            <div className="card mb-5 border-0">
-              <div className="row g-0">
-                {/* <!-- head --> */}
-                <div className="col-md-7">
-                  <img
-                    src="/assets/pic4.png"
-                    className="img-fluid rounded"
-                    alt="..."
-                  />
-                </div>
-                {/* <!-- body --> */}
-                <div className="col-md-5 d-flex flex-column justify-content-between">
-                  <div className="card-body">
-                    <h4 className="card-title">
-                      Bomb
-                      <br />
-                      Chicken
-                    </h4>
-                    <h5 className="card-text">
-                      Ingredients: Chicken, Dumpling Wrap, Garlic, Spring Onion,
-                      Soy Sauce, Black Sesame Seed
-                    </h5>
-                    <a
-                      className="btn btn-warning col-12"
-                      href="/html/menu/detailMenu.html"
-                      role="button"
-                    >
-                      10 Likes - 12 Comments
-                    </a>
-                    <div className="d-flex mt-3">
-                      <img src="/assets/Ellipse 127.png" alt="" />
+                      <img src="/src/assets/Ellipse 127.png" alt="" />
                       <p className="align-self-center m-0 ms-3">Karen</p>
                     </div>
                   </div>

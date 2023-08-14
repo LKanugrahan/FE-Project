@@ -1,5 +1,5 @@
-import Nav from "../component pages/Nav"
-import Footer from "../component pages/Footer"
+import Nav from "/src/ComponentPage/Nav"
+import Footer from "/src/ComponentPage/Footer"
 import "./style.css"
 
 export default function DetailMenu(){
