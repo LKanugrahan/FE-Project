@@ -4,7 +4,7 @@ body {
   padding: 0;
 }
 
-#scrollbar::-webkit-scrollbar {
+html::-webkit-scrollbar {
   display: none;
 }
 
@@ -80,6 +80,13 @@ body {
   align-items: center;
   justify-content: space-between;
   /* background-color: blue; */
+}
+
+#profileCardId {
+  background: none;
+  max-width: 210px;
+  height: 68px;
+  margin: 5% 0 0 40%
 }
 
 .user-panel img {

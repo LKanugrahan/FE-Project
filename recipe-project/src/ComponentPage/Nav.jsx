@@ -1,9 +1,19 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 export default function Nav() {
+  const navigate = useNavigate()
+  const logout = () => {
+    localStorage.clear()
+    navigate('/home')
+    console.log("berhasil")
+  }
   return (
     <>
       {/* <!-- TODO: NAVBAR --> */}
-      <nav id="nav" className="container-fluid navbar navbar-expand-lg flex-row justify-content-between">
+      <nav
+        id="nav"
+        className="container-fluid navbar navbar-expand-lg flex-row justify-content-between"
+      >
         <div id="navbar" className="mb-5">
           {/* <!-- nav --> */}
           <button
@@ -25,15 +35,12 @@ export default function Nav() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link ms-5 p-0" href="/html/menu/addMenu.html">
+                <Link to={"/add-menu"} className="nav-link ms-5 p-0">
                   Add Recipe
                 </Link>
               </li>
               <li className="nav-item">
-                <Link
-                  className="nav-link ms-5 p-0"
-                  href="/html/menu/searchMenu.html"
-                >
+                <Link to={"/search"} className="nav-link ms-5 p-0">
                   Search Menu
                 </Link>
               </li>
@@ -43,41 +50,40 @@ export default function Nav() {
         </div>
         {/* <!-- profile card --> */}
         <div id="profileCard" className="card border-0">
-            <div className="row g-0 d-flex justify-content-between">
-              <div id="box"></div>
-              <div className="col-4 align-self-center">
+          <div className="row g-0 d-flex justify-content-between">
+            <div id="box"></div>
+            <div className="col-4 align-self-center">
+              <Link
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#updateProfile"
+              >
+                <img
+                  src="/assets/pic-profile.png"
+                  className="img-fluid rounded-circle"
+                  alt="..."
+                />
+              </Link>
+            </div>
+            <div className="col-7">
+              <div className="card-body">
+                <Link to = {'/profile-menu'}
+                  className="card-title text-decoration-none"
+                >
+                  Ayudia
+                </Link>
                 <Link
                   type="button"
                   data-bs-toggle="modal"
-                  data-bs-target="#updateProfile"
+                  data-bs-target="#modalLogout"
                 >
-                  <img
-                    src="/assets/pic-profile.png"
-                    className="img-fluid rounded-circle"
-                    alt="..."
-                  />
+                  <p className="card-text">Logout</p>
                 </Link>
-              </div>
-              <div className="col-7">
-                <div className="card-body">
-                  <Link
-                    className="card-title text-decoration-none"
-                    href="/html/profile/profile-menu.html"
-                  >
-                    Ayudia
-                  </Link>
-                  <Link
-                    type="button"
-                    data-bs-toggle="modal"
-                    data-bs-target="#modalLogout"
-                  >
-                    <p className="card-text">Logout</p>
-                  </Link>
-                </div>
               </div>
             </div>
           </div>
-          {/* <!-- end profile card --> */}
+        </div>
+        {/* <!-- end profile card --> */}
       </nav>
       {/* <!-- TODO: END OF NAVBAR --> */}
       {/* <!-- TODO: MODAL --> */}
@@ -224,6 +230,7 @@ export default function Nav() {
                 <button
                   type="button"
                   className="btn btn-warning text-white mb-3 col-12"
+                  onClick={logout}
                 >
                   Yes
                 </button>

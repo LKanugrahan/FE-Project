@@ -1,15 +1,45 @@
 import { useEffect, useState } from "react";
+import {useNavigate, useParams} from "react-router-dom"
+import { useDispatch } from "react-redux";
+import { login } from "../../redux/actions/auth";
 import axios from "axios";
-import { useParams } from "react-router";
 
-let token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6ImxhbmdnZW5nIiwiZW1haWwiOiJsa2FudWdyYWhhbkBnbWFpbC5jb20iLCJjcmVhdGVkX2F0IjoiMjAyMy0wNy0yNVQwMToxNDo1Mi40NDlaIiwiaWF0IjoxNjkxOTIwNjE2fQ.LtQOfaa8dv164Hdv-uGmtTu_bprdwS5jRTZWH6cwqi0";
+
+// TODO: Login
+export const Login = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const [inputLogin, setLogin] = useState({
+    email: "",
+    password: "",
+  });
+
+  const saveLogin = (e) => {
+    e.preventDefault();
+    dispatch(login(inputLogin,navigate))
+
+  };
+  const changeLogin = (e) => {
+    setLogin({ ...inputLogin, [e.target.name]: e.target.value });
+  };
+
+  return {
+    inputLogin,
+    saveLogin,
+    changeLogin,
+  };
+};
+
+// TODO: Data Recipe
 
 export function GetData() {
   const [page, setPage] = useState(1);
-  // const [order, setOrder] = useState("recipe.id")
+  const [order, setOrder] = useState();
   const [search, setSearch] = useState("");
   const [result, setResult] = useState([]);
+  const [searchBy, setSearchBy] = useState();
+  const [sort, setSort] = useState();
+  const [limit, setLimit] = useState(5);
 
   // increase page
   const Increase = () => {
@@ -24,23 +54,84 @@ export function GetData() {
   const Searching = (e) => {
     setSearch(e.target.value);
   };
+  // order something
+  const Ordering = (e) => {
+    setOrder(e.target.value);
+  };
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
+      e.preventDefault();
       Axios();
     }
+  };
+
+  useEffect(() => {
+    Axios;
+  }, [page, order, sort, search, searchBy, limit]);
+
+  const params = new URLSearchParams({
+    page: page,
+    limit: limit,
+    search: search,
+})
+  const Axios = () => {
+    axios
+      .get(`http://localhost:3000/recipe/detail?${params}`)
+      .then((res) => {
+        console.log(res);
+        setResult(res.data.data);
+        console.log(res.request.responseURL)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  return {
+    page,
+    Increase,
+    Decrease,
+    search,
+    Searching,
+    result,
+    handleKeyDown,
+    order,
+    Ordering,
+  };
+}
+
+// TODO: GetDataProfileMenu
+
+export const GetDataProfile = () => {
+  const [page, setPage] = useState(1);
+  const [order, setOrder] = useState();
+  const [result, setResult] = useState([]);
+  const [sort, setSort] = useState();
+  const [limit, setLimit] = useState();
+
+  // increase page
+  const Increase = () => {
+    setPage((count) => count + 1);
+  };
+  // decrease page
+  const Decrease = () => {
+    setPage((count) => count - 1);
+  };
+
+  // order something
+  const Ordering = (e) => {
+    setOrder(e.target.value);
   };
 
   const Axios = () => {
     axios
       .get("http://localhost:3000/recipe/detail", {
         params: {
-          page: 1,
-          //   order: order || "recipe.id",
-          //   sort: sort || "ASC",
-          search: search,
-          // searchBy: "category_id",
-          limit: 10,
-          offset: 0,
+          page: page,
+          order: order,
+          sort: sort,
+          limit: 4,
         },
       })
       .then((res) => {
@@ -52,11 +143,17 @@ export function GetData() {
       });
   };
 
+  useEffect(() => {
+    Axios();
+  }, [page, order, sort]);
+
+  // TODO: DELETE RECIPE
+
   const deleteData = (id) => {
     axios
       .delete(`http://localhost:3000/recipe/${id}`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       })
       .then((res) => {
@@ -70,27 +167,21 @@ export function GetData() {
         Axios();
       });
   };
-
   return {
-    page,
-    Increase,
-    Decrease,
-    search,
-    Searching,
     result,
-    handleKeyDown,
     deleteData,
   };
-}
+};
+
+// TODO: POST RECIPE
 
 export const PostData = () => {
+  const navigate = useNavigate()
   const [inputData, setInputData] = useState({
-    "recipe_name": "",
-    "recipe_desc": "apa aja",
-    "recipe_ingredients":"",
-    "category_id":1,
-    "recipe_image":""
-    
+    recipe_name: "",
+    recipe_ingredients: "",
+    category_id: "",
+    recipe_image: "",
   });
   const [imageData, setImageData] = useState();
 
@@ -98,7 +189,6 @@ export const PostData = () => {
     event.preventDefault();
     let bodyFormData = new FormData();
     bodyFormData.append("recipe_name", inputData.recipe_name);
-    bodyFormData.append("recipe_desc", inputData.recipe_desc);
     bodyFormData.append("recipe_ingredients", inputData.recipe_ingredients);
     bodyFormData.append("category_id", inputData.category_id);
     bodyFormData.append("recipe_image", imageData);
@@ -108,12 +198,13 @@ export const PostData = () => {
     axios
       .post("http://localhost:3000/recipe", bodyFormData, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "multipart/form-data",
         },
       })
       .then((res) => {
         console.log(res);
+        navigate(`/detail/${inputData.id}`)
       })
       .catch((err) => {
         console.log(err);
@@ -139,79 +230,141 @@ export const PostData = () => {
     handlerPost,
     changePostData,
     changeImagePost,
-    inputData
-
-  }
+    inputData,
+  };
 };
 
-export const UpdateData=()=> {
-  const {ids} = useParams()
-    const [imageUpdate,setImageUpdate] = useState()
-    const [updateData, setUpdateData] = useState({
-        recipe_name:"",
-        recipe_desc: "",
-        recipe_ingredients:"",
-        category_id:"",
-        recipe_image:""
-    }) 
+// TODO: UPDATE RECIPE
 
-    const getData = () =>{
-        axios.get(`http://localhost:3000/recipe/${ids}`,{headers :{
-            Authorization : `Bearer ${token}`
-        }})
-        .then((res)=>{
-            console.log(res)
-            setUpdateData({...updateData,recipe_name:res.data.data.recipe_name,recipe_ingredients:res.data.data.recipe_ingredients,recipe_image:res.data.data.recipe_image})
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
-    }
+export const UpdateData = () => {
+  const { id } = useParams();
+  const [imageUpdate, setImageUpdate] = useState();
+  const [updateData, setUpdateData] = useState({
+    recipe_name: "",
+    recipe_desc: "",
+    recipe_ingredients: "",
+    category_id: "",
+    recipe_image: "",
+  });
 
-    useEffect(()=>{
-        console.log(ids)
-        getData()
-    },[])
+  const getData = () => {
+    axios
+      .get(`http://localhost:3000/recipe/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setUpdateData({
+          ...updateData,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    const handlerUpdate = (event) => {
-        event.preventDefault();
-        let bodyFormData = new FormData()
-        bodyFormData.append("recipe_name",updateData.recipe_name)
-        bodyFormData.append("recipe_ingredients",updateData.recipe_ingredients)
-        bodyFormData.append("category_id",updateData.category_id)
-        bodyFormData.append("recipe_image",imageUpdate)
+  useEffect(() => {
+    console.log(id);
+    getData();
+  }, []);
 
-        console.log(bodyFormData)
+  const handlerUpdate = (event) => {
+    event.preventDefault();
+    let bodyFormData = new FormData();
+    bodyFormData.append("recipe_name", updateData.recipe_name);
+    bodyFormData.append("recipe_ingredients", updateData.recipe_ingredients);
+    bodyFormData.append("category_id", updateData.category_id);
+    bodyFormData.append("recipe_image", imageUpdate);
 
-        axios.put(`http://localhost:3000/recipe/${ids}`,bodyFormData, {headers :{
-            Authorization : `Bearer ${token}`,
-            "Content-Type": 'multipart/form-data'
-        }})
-        .then((res)=>{
-            console.log(res)
-        })
-        .catch((err)=>{
-            console.log(err)
-        })
-    }
+    console.log(bodyFormData);
 
-    const changeUpdateData = (e) => {
-        setUpdateData({...updateData,
-        [e.target.name]:e.target.value
-        })
-        console.log(updateData)
-    }
-    const changeImageUpdate = (e) => {
-        setImageUpdate(e.target.files[0])
-        e.target.files[0] && setUpdateData({...updateData,recipe_image:URL.createObjectURL(e.target.files[0])})
-        console.log(e.target.files)
+    axios
+      .put(`http://localhost:3000/recipe/${id}`, bodyFormData, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    }
+  const changeUpdateData = (e) => {
+    setUpdateData({ ...updateData, [e.target.name]: e.target.value });
+    console.log(updateData);
+  };
+  const changeImageUpdate = (e) => {
+    setImageUpdate(e.target.files[0]);
+    e.target.files[0] &&
+      setUpdateData({
+        ...updateData,
+        recipe_image: URL.createObjectURL(e.target.files[0]),
+      });
+    console.log(e.target.files);
+  };
 
   return {
     handlerUpdate,
     changeUpdateData,
     changeImageUpdate,
-    updateData
-  }
+    updateData,
+  };
+};
+
+// TODO: GET RECIPE ID
+
+export const GetDataId = () => {
+  const { id } = useParams();
+  const [resultId, setResultId] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`http://localhost:3000/recipe/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setResultId(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+  return {
+    resultId,
+    setResultId,
+  };
+};
+
+// TODO: Data Category
+
+export function GetCategory() {
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    Axios();
+  }, []);
+
+  const Axios = () => {
+    axios
+      .get("http://localhost:3000/category/")
+      .then((res) => {
+        console.log(res);
+        setCategory(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  return {
+    category,
+  };
 }

@@ -1,4 +1,5 @@
 import { GetData, PostData, UpdateData } from "../Logic/index";
+import { useState } from "react";
 
 export function SearchLanding() {
   const { search, Searching, result, handleKeyDown, deleteData } = GetData();
@@ -110,5 +111,39 @@ export const SearchUpdate = () => {
         </form>
       </div>
     </>
+  );
+};
+
+export const Apps = () => {
+  const [loggedIn, setLoggedIn] = useState(
+    localStorage.getItem("loggedIn") === "true"
+  );
+
+  const handleLogin = () => {
+    // Simulate successful login
+    localStorage.setItem("loggedIn", "true");
+    setLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    // Simulate logout
+    localStorage.clear();
+    setLoggedIn(false);
+  };
+
+  return (
+    <div>
+      {loggedIn ? (
+        <div>
+          <p>Welcome! You are logged in.</p>
+          <button onClick={handleLogout}>Logout</button>
+        </div>
+      ) : (
+        <div>
+          <p>Please log in.</p>
+          <button onClick={handleLogin}>Login</button>
+        </div>
+      )}
+    </div>
   );
 };

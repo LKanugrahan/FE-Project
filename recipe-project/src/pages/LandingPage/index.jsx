@@ -1,8 +1,9 @@
 import "./style.css";
 import { Link } from "react-router-dom";
-import { GetData } from "../../System/Logic";
+import { GetData, Login } from "../../System/Logic";
 export default function LandingPage() {
-  const { search, Searching } = GetData()
+  const { search, Searching, handleKeyDown } = GetData();
+  const { inputLogin, saveLogin, changeLogin } = Login();
   return (
     <>
       <div id="food-item1">
@@ -23,25 +24,69 @@ export default function LandingPage() {
           </ul>
         </div>
         <div className="box-top">
-          <div className="user-panel">
-            <img src="https://res.cloudinary.com/dafjb9vn7/image/upload/v1691755555/assets/user-icon_yulm9c.svg" alt="" />
-            <a
-              className="text-white"
-              type="button"
-              data-bs-toggle="modal"
-              data-bs-target="#modalLogin"
-            >
-              Login
-            </a>
-          </div>
+          {localStorage.getItem("token") === null ? (
+            <div className="user-panel">
+              <img
+                src="https://res.cloudinary.com/dafjb9vn7/image/upload/v1691755555/assets/user-icon_yulm9c.svg"
+                alt=""
+              />
+              <a
+                className="text-white"
+                type="button"
+                data-bs-toggle="modal"
+                data-bs-target="#modalLogin"
+              >
+                Login
+              </a>
+            </div>
+          ) : (
+            <div id="profileCardId" className="card border-0">
+              <div className="row g-0 d-flex justify-content-between">
+                <div id="box"></div>
+                <div className="col-4 align-self-center">
+                  <Link
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#updateProfile"
+                  >
+                    <img
+                      src="/assets/pic-profile.png"
+                      className="img-fluid rounded-circle"
+                      alt="..."
+                    />
+                  </Link>
+                </div>
+                <div className="col-7">
+                  <div className="card-body">
+                    <Link
+                      to={"/profile-menu"}
+                      className="card-title text-decoration-none"
+                    >
+                      Ayudia
+                    </Link>
+                    <Link
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#modalLogout"
+                    >
+                      <p className="card-text">Logout</p>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
         <div id="img-search" className="desc-recipe1">
           <div className="recipe1-text">
-            <h1>
+            <h1 id="searchMenu">
               Discover Recipe <br />& Delicious Food
             </h1>
             <div className="input-group flex-nowrap">
-              <span className="input-group-text bg-body-secondary" id="addon-wrapping">
+              <span
+                className="input-group-text bg-body-secondary"
+                id="addon-wrapping"
+              >
                 <svg
                   width="20"
                   height="20"
@@ -73,11 +118,15 @@ export default function LandingPage() {
                 aria-describedby="addon-wrapping"
                 value={search}
                 onChange={Searching}
+                onKeyDown={handleKeyDown}
               />
             </div>
           </div>
           <div className="recipe1-pic">
-            <img src="https://res.cloudinary.com/dafjb9vn7/image/upload/v1691755711/assets/pic1_trtpal.png" alt="" />
+            <img
+              src="https://res.cloudinary.com/dafjb9vn7/image/upload/v1691755711/assets/pic1_trtpal.png"
+              alt=""
+            />
           </div>
         </div>
       </div>
@@ -91,7 +140,10 @@ export default function LandingPage() {
           </div>
           <div className="desc-recipe2">
             <div className="recipe2-pic">
-              <img src="https://res.cloudinary.com/dafjb9vn7/image/upload/v1691755742/assets/pic2_wz22u7.png" alt="" />
+              <img
+                src="https://res.cloudinary.com/dafjb9vn7/image/upload/v1691755742/assets/pic2_wz22u7.png"
+                alt=""
+              />
             </div>
             <div className="recipe2-text">
               <h2>Healthy Bone Broth Ramen (Quick & Easy)</h2>
@@ -114,7 +166,10 @@ export default function LandingPage() {
           </div>
           <div className="desc-recipe3">
             <div className="recipe3-pic">
-              <img src="https://res.cloudinary.com/dafjb9vn7/image/upload/v1691755742/assets/pic3_fpvrpo.png" alt="" />
+              <img
+                src="https://res.cloudinary.com/dafjb9vn7/image/upload/v1691755742/assets/pic3_fpvrpo.png"
+                alt=""
+              />
             </div>
             <div className="recipe3-text">
               <h2>Healthy Bone Broth Ramen (Quick & Easy)</h2>
@@ -122,7 +177,9 @@ export default function LandingPage() {
                 Quick + Easy Chicken Bone Broth Ramen- Healthy chicken ramen in
                 a hurry? That’s right!
               </p>
-              <Link to={"/search"}><input type="button" value="Learn More" /></Link>
+              <Link to={"/search"}>
+                <input type="button" value="Learn More" />
+              </Link>
             </div>
           </div>
         </div>
@@ -194,7 +251,7 @@ export default function LandingPage() {
         <div className="modal-dialog">
           <div className="modal-content">
             <div className="modal-body">
-              <form action="" method="post">
+              <form onSubmit={saveLogin}>
                 <h2 className="text-center">Recipe...</h2>
                 <h2 className="text-center">Welcome</h2>
                 <div className="form-text text-center">
@@ -206,6 +263,9 @@ export default function LandingPage() {
                   </label>
                   <input
                     type="email"
+                    name="email"
+                    value={inputLogin.email}
+                    onChange={changeLogin}
                     className="form-control"
                     id="inputEmailLogin"
                     aria-describedby="emailHelp"
@@ -219,6 +279,9 @@ export default function LandingPage() {
                   </label>
                   <input
                     type="password"
+                    name="password"
+                    value={inputLogin.password}
+                    onChange={changeLogin}
                     className="form-control"
                     id="inputPasswordLogin"
                     placeholder="Password"
@@ -322,7 +385,10 @@ export default function LandingPage() {
                     id="inputCheckRegist"
                     required
                   />
-                  <label className="form-check-label" htmlFor="inputCheckRegist">
+                  <label
+                    className="form-check-label"
+                    htmlFor="inputCheckRegist"
+                  >
                     I agree to terms & conditions
                   </label>
                 </div>
