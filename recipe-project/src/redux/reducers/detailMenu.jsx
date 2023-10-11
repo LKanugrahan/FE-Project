@@ -5,13 +5,13 @@ const initialState = {
     isError:false
 }
 
-const authReducer = (state=initialState,action) => {
-    if(action.type === 'AUTH_LOGIN_PENDING'){
+const detailMenuReducer = (state=initialState,action) => {
+    if(action.type === 'MENU_DETAIL_PENDING'){
         return{
             ...state,
             isLoading: true,
         }
-    } else if(action.type === 'AUTH_LOGIN_SUCCESS'){
+    } else if(action.type === 'MENU_DETAIL_SUCCESS'){
         return{
             ...state,
             data: action.payload,
@@ -19,7 +19,7 @@ const authReducer = (state=initialState,action) => {
             errorMessage:'',
             isError:false
         }
-    } else if(action.type === 'AUTH_LOGIN_FAILED'){
+    } else if(action.type === 'MENU_DETAIL_FAILED'){
         return{
             ...state,
             data:null,
@@ -32,4 +32,4 @@ const authReducer = (state=initialState,action) => {
     }
 }
 
-export default authReducer
+export default detailMenuReducer

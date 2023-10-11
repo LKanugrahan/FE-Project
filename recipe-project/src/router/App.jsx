@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { Navigate, Route, Routes, BrowserRouter } from "react-router-dom";
 import "./App.css";
 import SearchMenu from "../pages/SearchMenu";
@@ -7,9 +6,6 @@ import DetailMenu from "../pages/DetailMenu";
 import ProfileMenu from "../pages/ProfileMenu";
 import LandingPage from "../pages/LandingPage";
 import AuthChecker from "../pages/privateRoute/authChecker";
-// import tester
-import { SearchLanding, SearchUpdate, Apps } from "../System/Bar";
-import { Tes } from "../System/Logic/tes";
 import UpdateMenu from "../pages/UpdateMenu";
 
 
@@ -24,11 +20,7 @@ function App() {
           <Route path="/add-menu" element={<AuthChecker><AddMenu /></AuthChecker>} />
           <Route path="/detail/:id" element={<DetailMenu />} />
           <Route path="/profile-menu" element={<ProfileMenu />} />
-          <Route path="/add-menu/:id" element={<UpdateMenu />} />
-          {/* Bar Tester */}
-          <Route path="/checkers/:id" element={<SearchUpdate />} />
-          <Route path="/check" element={<Apps />} />
-          <Route path="/checker" element={<Tes />} />
+          <Route path="/update-menu/:id" element={<AuthChecker><UpdateMenu /></AuthChecker>} />
         </Routes>
       </BrowserRouter>
     </>

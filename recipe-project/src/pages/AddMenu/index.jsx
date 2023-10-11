@@ -1,11 +1,55 @@
 import Nav from "../../ComponentPage/Nav";
 import Footer from "../../ComponentPage/Footer";
 import "./style.css";
-import { GetCategory, PostData } from "../../System/Logic";
+import { useNavigate } from "react-router";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addMenu } from "../../redux/actions/menu";
+import { category } from "../../redux/actions/category";
+
 export default function AddMenu() {
-  const { handlerPost, changePostData, changeImagePost, inputData } =
-    PostData();
-  const { category } = GetCategory();
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const [inputData, setInputData] = useState({
+    recipe_name: "",
+    recipe_ingredients: "",
+    category_id: "",
+    recipe_image: "",
+  });
+  const [imageData, setImageData] = useState();
+
+  const handlerPost = (event) => {
+    event.preventDefault();
+    let bodyFormData = new FormData();
+    bodyFormData.append("recipe_name", inputData.recipe_name);
+    bodyFormData.append("recipe_ingredients", inputData.recipe_ingredients);
+    bodyFormData.append("category_id", inputData.category_id);
+    bodyFormData.append("recipe_image", imageData);
+
+    console.log(bodyFormData);
+    dispatch(addMenu(bodyFormData,navigate))
+  };
+
+  const changePostData = (e) => {
+    setInputData({ ...inputData, [e.target.name]: e.target.value });
+    console.log(inputData);
+  };
+
+  const changeImagePost = (e) => {
+    setImageData(e.target.files[0]);
+    e.target.files[0] &&
+      setInputData({
+        ...inputData,
+        recipe_image: URL.createObjectURL(e.target.files[0]),
+      });
+    console.log(e.target.files);
+  };
+
+  const { categoryData } = useSelector((state) => state.categoryReducer);
+
+  useEffect(() => {
+    dispatch(category());
+  }, []);
 
   return (
     <>
@@ -13,13 +57,15 @@ export default function AddMenu() {
       {/* <!-- TODO: LISTBAR --> */}
       <main className="d-flex align-items-center justify-content-center">
         <form onSubmit={handlerPost} className="col-8 d-flex flex-column">
-          <div className="form-group mb-4">
+          <div
+            id="inputImage"
+            className="form-group mb-4 bg-light col-12 border"
+          >
             <input
-              id="inputImage"
               type="file"
               name="recipe_image"
               onChange={changeImagePost}
-              className="form-control-file p-5 bg-light col-12 border"
+              className="form-control-file p-5"
               accept=".jpg, .png"
               required
             />
@@ -54,12 +100,12 @@ export default function AddMenu() {
               aria-label="Default select example"
               required
             >
-              {/* <option selected hidden label="Category">
-              Category
-            </option> */}
-              {category.map((ctr) => (
-                <option key={ctr.id} value={ctr.id}>
-                  {ctr.category}
+              <option hidden label="Category">
+                Category
+              </option>
+              {categoryData.map((item,index) => (
+                <option key={item.id} value={item.id}>
+                  {item.category}
                 </option>
               ))}
             </select>

@@ -25,3 +25,7 @@
   max-width: 614px;
 }
 /* END SEARCH */
+
+#scrollbar::-webkit-scrollbar {
+  display: none;
+}

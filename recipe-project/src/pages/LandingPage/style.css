@@ -50,7 +50,6 @@ html::-webkit-scrollbar {
 }
 
 .navbar a {
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   text-decoration: none;
@@ -95,7 +94,7 @@ html::-webkit-scrollbar {
 }
 
 .user-panel a {
-  font-family: "Poppins";
+  
   font-weight: 400;
   font-style: normal;
   font-size: 12px;
@@ -124,7 +123,7 @@ html::-webkit-scrollbar {
 }
 
 .recipe1-text h1 {
-  font-family: "Poppins";
+  
   font-weight: 500;
   font-style: normal;
   font-size: 52px;
@@ -135,7 +134,7 @@ html::-webkit-scrollbar {
 /* FIXME: tambahin icon*/
 
 .recipe1-text .input-group .flex-nowrap {
-  font-family: "Poppins";
+  
   font-weight: 400;
   font-style: normal;
 }
@@ -203,7 +202,7 @@ html::-webkit-scrollbar {
 }
 
 .title2-text h2 {
-  font-family: "Poppins";
+  
   font-weight: 500;
   font-style: normal;
   font-size: 35px;
@@ -239,7 +238,7 @@ html::-webkit-scrollbar {
 }
 
 .recipe2-text h2 {
-  font-family: "Poppins";
+  
   font-weight: 500;
   font-style: normal;
   font-size: 39px;
@@ -248,7 +247,7 @@ html::-webkit-scrollbar {
 }
 
 .recipe2-text p {
-  font-family: "Poppins";
+  
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
@@ -257,7 +256,7 @@ html::-webkit-scrollbar {
 }
 
 .recipe2-text input {
-  font-family: "Poppins";
+  
   font-weight: 500;
   font-style: normal;
   font-size: 12px;
@@ -320,7 +319,7 @@ html::-webkit-scrollbar {
 }
 
 .title3-text h2 {
-  font-family: "Poppins";
+  
   font-weight: 500;
   font-style: normal;
   font-size: 34px;
@@ -356,7 +355,7 @@ html::-webkit-scrollbar {
 }
 
 .recipe3-text h2 {
-  font-family: "Poppins";
+  
   font-weight: 500;
   font-style: normal;
   font-size: 39px;
@@ -365,7 +364,7 @@ html::-webkit-scrollbar {
 }
 
 .recipe3-text p {
-  font-family: "Poppins";
+  
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
@@ -374,7 +373,7 @@ html::-webkit-scrollbar {
 }
 
 .recipe3-text input {
-  font-family: "Poppins";
+  
   font-weight: 500;
   font-style: normal;
   font-size: 12px;
@@ -436,7 +435,7 @@ html::-webkit-scrollbar {
 }
 
 .title4-text h2 {
-  font-family: "Poppins";
+  
   font-weight: 500;
   font-style: normal;
   font-size: 34px;
@@ -467,7 +466,7 @@ html::-webkit-scrollbar {
 }
 
 .recipe4-pic p {
-  font-family: "Poppins";
+  
   font-weight: 500;
   font-style: normal;
   font-size: 21px;
@@ -520,7 +519,7 @@ html::-webkit-scrollbar {
 }
 
 #footer h2 {
-  font-family: "Poppins";
+  
   font-style: normal;
   font-weight: 400;
   font-size: 52px;
@@ -530,7 +529,7 @@ html::-webkit-scrollbar {
 }
 
 #footer p {
-  font-family: "Poppins";
+  
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -557,7 +556,7 @@ html::-webkit-scrollbar {
 }
 
 .navbar-footer a {
-  font-family: "Poppins";
+  
   font-style: normal;
   font-weight: 400;
   text-decoration: none;

@@ -1,14 +1,55 @@
 import Nav from "../../ComponentPage/Nav";
 import Footer from "../../ComponentPage/Footer";
 import "./style.css";
-import { GetCategory, UpdateData } from "../../System/Logic";
+import { useNavigate, useParams } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { updateMenu } from "../../redux/actions/menu";
+import { useEffect, useState } from "react";
+import { category } from "../../redux/actions/category";
+
 export default function UpdateMenu() {
-  const {     handlerUpdate,
-    changeUpdateData,
-    changeImageUpdate,
-    updateData, } =
-    UpdateData();
-  const { category } = GetCategory();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const [imageUpdate, setImageUpdate] = useState();
+  const [updateData, setUpdateData] = useState({
+    recipe_name: "",
+    recipe_desc: "",
+    recipe_ingredients: "",
+    category_id: "",
+    recipe_image: "",
+  });
+  const handlerUpdate = (event) => {
+    event.preventDefault();
+    let bodyFormData = new FormData();
+    bodyFormData.append("recipe_name", updateData.recipe_name);
+    bodyFormData.append("recipe_ingredients", updateData.recipe_ingredients);
+    bodyFormData.append("category_id", updateData.category_id);
+    bodyFormData.append("recipe_image", imageUpdate);
+
+    console.log(bodyFormData);
+    dispatch(updateMenu(id, bodyFormData, navigate));
+  };
+
+  const changeUpdateData = (e) => {
+    setUpdateData({ ...updateData, [e.target.name]: e.target.value });
+    console.log(updateData);
+  };
+  const changeImageUpdate = (e) => {
+    setImageUpdate(e.target.files[0]);
+    e.target.files[0] &&
+      setUpdateData({
+        ...updateData,
+        recipe_image: URL.createObjectURL(e.target.files[0]),
+      });
+    console.log(e.target.files);
+  };
+
+  const { categoryData } = useSelector((state) => state.categoryReducer);
+
+  useEffect(() => {
+    dispatch(category());
+  }, []);
   return (
     <>
       <Nav></Nav>
@@ -52,10 +93,10 @@ export default function UpdateMenu() {
               onChange={changeUpdateData}
               aria-label="Default select example"
             >
-              {/* <option selected hidden label="Category">
-              Category
-            </option> */}
-              {category.map((ctr) => (
+              <option hidden label="Category">
+                Category
+              </option>
+              {categoryData.map((ctr) => (
                 <option key={ctr.id} value={ctr.id}>
                   {ctr.category}
                 </option>

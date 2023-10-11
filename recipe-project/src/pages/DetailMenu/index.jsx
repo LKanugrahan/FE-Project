@@ -1,10 +1,20 @@
 import Nav from "/src/ComponentPage/Nav";
 import Footer from "/src/ComponentPage/Footer";
 import "./style.css";
-import { GetDataId } from "../../System/Logic";
+import { useDispatch, useSelector } from "react-redux";
+import { detailMenu } from "../../redux/actions/menu";
+import { useEffect } from "react";
+import { useParams } from "react-router";
 
 export default function DetailMenu() {
-  const { resultId } = GetDataId();
+  const {id} = useParams()
+  const dispatch = useDispatch()
+  const { data } = useSelector((state) => state.detailMenuReducer);
+
+  useEffect(() => {
+    dispatch(detailMenu(id));
+  }, []); 
+
   return (
     <>
       <Nav></Nav>
@@ -25,19 +35,19 @@ export default function DetailMenu() {
                 </div>
                 <div className="col-7">
                   <div className="card-body">
-                    <h5 className="card-title">Ayudia</h5>
-                    <p className="card-text">10 Recipes</p>
+                    <h5 className="card-title">{localStorage.getItem("username")}</h5>
+                    {/* <p className="card-text">10 Recipes</p> */}
                   </div>
                 </div>
               </div>
             </div>
             {/* <!-- end profile card --> */}
-            <p className="align-self-center m-0 text-end">
+            {/* <p className="align-self-center m-0 text-end">
               12 februari 2013 <br />
               20 likes - 2 Comments
-            </p>
+            </p> */}
           </div>
-          {resultId.map((item, index) => {
+          {data && data.map((item, index) => {
             return (
               <div id="recipe" key={item.id}>
                 <h1 className="text-center p-5">{item.recipe_name}</h1>
