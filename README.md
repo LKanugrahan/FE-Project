@@ -54,27 +54,32 @@ This Web was built with some technologies below:
 
 ## Installation
 
-Install Mama Recipe Mobile API with npm :
+Install Mama Recipe Web with npm :
 
-- Clone the Repo
+- Clone the repository
 
 ```
   git clone https://github.com/LKanugrahan/FE-Project.git
 ```
 
-- Go To Folder Repo
+- Go to folder repository
 
 ```
   cd FE-Project
 ```
 
-- Install Module
+- Install dependencies
 
 ```
   npm install
 ```
 
-- Type  ```npm run dev``` To Start Production
+- Run Program
+
+  Type in repository path
+```
+npm run dev
+```
 
 ## Contributing
 
