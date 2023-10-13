@@ -1,10 +1,10 @@
 <br/>
 <p align="center">
-  <a href="https://github.com/LKanugrahan/mamaRecipeAPI">
+  <a href="https://github.com/LKanugrahan/FE-Project">
     <img src="https://i.postimg.cc/JnsbMGwj/mamarecipe-logo.png" alt="Logo" width="150" height="180">
   </a>
 
-  <h3 align="center">Mama Recipe API</h3>
+  <h3 align="center">Mama Recipe Web</h3>
 
   <p align="center">
     Discover Recipe & Delicious Food.
