@@ -13,7 +13,7 @@
     <a href="https://github.com/LKanugrahan/FE-Project"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://fe-project-langgeng.vercel.app/home">View Demo</a>
+    <a href="https://github.com/LKanugrahan/FE-Project">View Demo</a>
     .
     <a href="https://github.com/LKanugrahan/FE-Project/issues">Report Bug</a>
     .
