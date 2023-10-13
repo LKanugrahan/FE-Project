@@ -51,6 +51,7 @@ This Web was built with some technologies below:
 
 **Backend:**
 - Express.js
+- PostgreSQL
 
 ## Installation
 
