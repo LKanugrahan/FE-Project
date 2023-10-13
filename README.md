@@ -33,7 +33,7 @@
 ## About The Project
 
 <p align="justify">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Mama Recipe Web project is a front-end web project that serves as a user-friendly platform for discovering and exploring a wide variety of culinary recipes. This application leverages Node.js, React.js, Redux, Axios, Bootstrap and CSS. This project is suitable for those seeking culinary inspiration, wishing to share recipes, or simply looking for cooking guidance.</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mama Recipe Web project is a front-end web project that serves as a user-friendly platform for discovering and exploring a wide variety of culinary recipes. This application leverages Node.js, React.js, Redux, Axios, Bootstrap and CSS. This project is suitable for those seeking culinary inspiration, wishing to share recipes, or simply looking for cooking guidance.</p>
 
 ## Built With
 
