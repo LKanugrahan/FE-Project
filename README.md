@@ -90,6 +90,10 @@ Contributions are what make the open-source community such an amazing place to l
 
 :rocket: [`Backend Mama Recipe`](https://github.com/LKanugrahan/mamaRecipeAPI)
 
+:rocket: [`Frontend Mama Recipe`](https://github.com/LKanugrahan/Fe-project)
+
+:rocket: [`Mobile Mama Recipe`](https://github.com/LKanugrahan/mobileproject)
+
 ## Contact
 
 - Email : [`lkanugrahan@gmail.com`](mailto:lkanugrahan@gmail.com)
