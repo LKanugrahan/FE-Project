@@ -10,14 +10,14 @@
     Discover Recipe & Delicious Food.
     <br/>
     <br/>
-    <a href="https://github.com/LKanugrahan/mamaRecipeAPI"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/LKanugrahan/FE-Project"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/LKanugrahan/mamaRecipeAPI">View Demo</a>
+    <a href="https://github.com/LKanugrahan/FE-Project">View Demo</a>
     .
-    <a href="https://github.com/LKanugrahan/mamaRecipeAPI/issues">Report Bug</a>
+    <a href="https://github.com/LKanugrahan/FE-Project/issues">Report Bug</a>
     .
-    <a href="https://github.com/LKanugrahan/mamaRecipeAPI/issues">Request Feature</a>
+    <a href="https://github.com/LKanugrahan/FE-Project/issues">Request Feature</a>
   </p>
 </p>
 
@@ -41,13 +41,14 @@ This API was built with some technologies below:
 
 **Technology:**
 - Node.js
+- React.js
+- Redux
+
+**Styling:**
+- Bootstrap
+
+**Backend:**
 - Express.js
-
-**RDBMS:**
-- PostgreSQL
-
-**Testing API:**
-- Postman
 
 ## Installation
 
@@ -56,13 +57,13 @@ Install Mama Recipe Mobile API with npm :
 - Clone the Repo
 
 ```
-  git clone https://github.com/LKanugrahan/mamaRecipeAPI.git
+  git clone https://github.com/LKanugrahan/FE-Project.git
 ```
 
 - Go To Folder Repo
 
 ```
-  cd mamaRecipeAPI
+  cd FE-Project
 ```
 
 - Install Module
@@ -71,25 +72,7 @@ Install Mama Recipe Mobile API with npm :
   npm install
 ```
 
-- Setup .env
-```
-For Database
-DB_HOST =
-DB_USER =
-DB_PASSWORD =
-DB_NAME =
-DB_PORT =
-
-For JSON Web Token
-JWT_TOKEN =
-
-For cloudinary
-CLOUD_NAME =
-API_KEY =
-API_SECRET =
-```
-
-- Type  ```npm run start``` To Start Production
+- Type  ```npm run dev``` To Start Production
 
 ## Contributing
 
