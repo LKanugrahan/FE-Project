@@ -558,14 +558,13 @@ export default function LandingPage() {
               <h2 className="text-center">Edit Profile</h2>
 
               <form className=" d-flex flex-column" onSubmit={handlerPutUser}>
+                <label htmlFor="imageForm" className="file-label align-self-center" role="button">
                 <img
                   src={profileImageURL}
                   alt=""
                   style={{ width: 300, height: 300 }}
-                  className="img-fluid rounded-circle align-self-center"
+                  className="img-fluid rounded-circle"
                 />
-                <label htmlFor="imageForm" className="file-label">
-                  Pilih Gambar
                 </label>
                 <input
                   type="file"
