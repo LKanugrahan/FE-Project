@@ -1,23 +1,23 @@
 <br/>
 <p align="center">
-  <a href="https://github.com/LKanugrahan/mamaRecipeAPI">
+  <a href="https://github.com/LKanugrahan/FE-Project">
     <img src="https://i.postimg.cc/JnsbMGwj/mamarecipe-logo.png" alt="Logo" width="150" height="180">
   </a>
 
-  <h3 align="center">Mama Recipe API</h3>
+  <h3 align="center">Mama Recipe Web</h3>
 
   <p align="center">
     Discover Recipe & Delicious Food.
     <br/>
     <br/>
-    <a href="https://github.com/LKanugrahan/mamaRecipeAPI"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/LKanugrahan/FE-Project"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/LKanugrahan/mamaRecipeAPI">View Demo</a>
+    <a href="https://github.com/LKanugrahan/FE-Project">View Demo</a>
     .
-    <a href="https://github.com/LKanugrahan/mamaRecipeAPI/issues">Report Bug</a>
+    <a href="https://github.com/LKanugrahan/FE-Project/issues">Report Bug</a>
     .
-    <a href="https://github.com/LKanugrahan/mamaRecipeAPI/issues">Request Feature</a>
+    <a href="https://github.com/LKanugrahan/FE-Project/issues">Request Feature</a>
   </p>
 </p>
 
@@ -33,63 +33,54 @@
 ## About The Project
 
 <p align="justify">
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Mama Recipe API project is a web-based application aimed at providing cooking recipes accessible to users through an API interface. This application leverages Node.js, Express.js, and the Relational Database Management System (RDBMS) PostgreSQL to manage cooking recipe data. This project is suitable for those seeking culinary inspiration, wishing to share recipes, or simply looking for cooking guidance.</p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mama Recipe Web project is a front-end web project that serves as a user-friendly platform for discovering and exploring a wide variety of culinary recipes. This application leverages Node.js, React.js, Redux, Axios, Bootstrap and CSS. This project is suitable for those seeking culinary inspiration, wishing to share recipes, or simply looking for cooking guidance.</p>
 
 ## Built With
 
-This API was built with some technologies below:
+This Web was built with some technologies below:
 
 **Technology:**
 - Node.js
+- React.js
+- Redux
+- Axios
+
+**Styling:**
+- Bootstrap
+- CSS
+
+**Backend:**
 - Express.js
-
-**RDBMS:**
 - PostgreSQL
-
-**Testing API:**
-- Postman
 
 ## Installation
 
-Install Mama Recipe Mobile API with npm :
+Install Mama Recipe Web with npm :
 
-- Clone the Repo
-
-```
-  git clone https://github.com/LKanugrahan/mamaRecipeAPI.git
-```
-
-- Go To Folder Repo
+- Clone the repository
 
 ```
-  cd mamaRecipeAPI
+  git clone https://github.com/LKanugrahan/FE-Project.git
 ```
 
-- Install Module
+- Go to folder repository
+
+```
+  cd FE-Project
+```
+
+- Install dependencies
 
 ```
   npm install
 ```
 
-- Setup .env
+- Run Program
+
+  Type in repository path
 ```
-For Database
-DB_HOST =
-DB_USER =
-DB_PASSWORD =
-DB_NAME =
-DB_PORT =
-
-For JSON Web Token
-JWT_TOKEN =
-
-For cloudinary
-CLOUD_NAME =
-API_KEY =
-API_SECRET =
+npm run dev
 ```
-
-- Type  ```npm run start``` To Start Production
 
 ## Contributing
 
@@ -104,6 +95,10 @@ Contributions are what make the open-source community such an amazing place to l
 ## Related Project
 
 :rocket: [`Backend Mama Recipe`](https://github.com/LKanugrahan/mamaRecipeAPI)
+
+:rocket: [`Frontend Mama Recipe`](https://github.com/LKanugrahan/Fe-project)
+
+:rocket: [`Mobile Mama Recipe`](https://github.com/LKanugrahan/mobileproject)
 
 ## Contact
 
