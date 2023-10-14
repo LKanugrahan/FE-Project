@@ -28,9 +28,11 @@ export default function DetailMenu() {
                 <div id="box"></div>
                 <div className="col-4 align-self-center">
                   <img
-                    src="/src/assets/pic-profile.png"
+                    src={localStorage.getItem("photo")}
                     className="img-fluid rounded-circle"
                     alt="..."
+                    width={50}
+                    height={50}
                   />
                 </div>
                 <div className="col-7">

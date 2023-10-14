@@ -166,18 +166,18 @@ export default function SearchMenu() {
                         <div className="col-md-5 d-flex flex-column justify-content-between">
                           <div className="card-body">
                             <h4 className="card-title">{item.recipe_name}</h4>
-                            <h5 className="card-text">
+                            <p className="card-text">
                               Ingredients: {item.recipe_ingredients}
-                            </h5>
+                            </p>
                             <Link
                               to={`/detail/${item.id}`}
                               className="btn btn-warning col-12"
                               role="button"
                             >
-                              10 Likes - 12 Comments
+                              Detail Menu
                             </Link>
                             <div className="d-flex mt-3">
-                              <img src="/src/assets/Ellipse 127.png" alt="" />
+                              <img className="rounded-circle" width={50} height={50} src={localStorage.getItem("photo")} alt="" />
                               <p className="align-self-center m-0 ms-3">
                                 {item.name}
                               </p>

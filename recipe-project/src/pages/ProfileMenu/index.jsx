@@ -151,9 +151,9 @@ export default function ProfileMenu() {
                           <div className="card-body d-flex flex-column justify-content-between">
                             <div>
                               <h4 className="card-title">{item.recipe_name}</h4>
-                              <h5 className="card-text">
+                              <p className="card-text">
                                 Ingredients: {item.recipe_ingredients}
-                              </h5>
+                              </p>
                             </div>
                             <div className="d-flex flex-column gap-2">
                               <Link
